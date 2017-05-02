@@ -1,13 +1,30 @@
-import React, { Component } from "react";
+import React, {
+    Component
+}
+from "react";
+import Pagination from "./Pagination"
 
 class GalleryControls extends Component {
-  render() {
-    let options = this.props.filters.map(filter => (
-      <option value={filter}>{filter}</option>
-    ));
 
-    return (
-      <div className="row">
+
+
+    shouldComponentUpdate() {
+        console.log("not updating");
+        return false;
+    }
+    
+    
+    
+    
+    
+
+    render() {
+        let options = this.props.filters.map(filter => (
+            <option value={filter}>{filter}</option>
+        ));
+
+        return (
+            <div className="row">
         <div className="col-xs-12">
           <div className="panel panel-default">
             <div className="panel-heading">
@@ -15,16 +32,17 @@ class GalleryControls extends Component {
             </div>
             <div className="panel-body">
               <form>
-                <select onChange={this.props.filterPhotos} name="tag">
+                <select onChange={this.props._filterPhotos} name="tag">
                   {options}
                 </select>
               </form>
+              <Pagination _changePage={this.props._changePage}/>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+        );
+    }
 }
 
 export default GalleryControls;
