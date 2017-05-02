@@ -32,17 +32,27 @@ class Gallery extends Component {
 
   _changePage(event) {
     let direction = event.target.value;
+    let newPage = this.state.page + +direction;
+    if (newPage < 0) newPage = 0;
+    
+    
+    if (newPage * 12 > this.state.photos.length) {
+        newPage = Math.floor(this.state.photos.length / 12);
+        if (!this.state.photos.length % 12) newPage += 1;
+    }
+    
     this.setState({
-      page: this.state.page + direction
+      page: newPage
     });
   }
 
   _changeFilter(event) {
     let filter = event.target.value;
-    this.setState({ filter });
+    this.setState({ filter: filter, page: 0 });
   }
 
   render() {
+      console.log("Page state:", this.state);
     let filteredPhotos = this.state.filter === "All" ?
       this.allPhotos :
       this.allPhotos.filter(photo => {

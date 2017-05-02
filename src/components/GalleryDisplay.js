@@ -3,6 +3,8 @@ import Picture from './Picture';
 
 class GalleryDisplay extends Component {
 
+
+
   render() {
 
     const pictures = this.props.photos.map(photo => (
