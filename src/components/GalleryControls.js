@@ -2,7 +2,8 @@ import React, {
     Component
 }
 from "react";
-import Pagination from "./Pagination"
+import Pagination from "./Pagination";
+import Sortination from "./Sortination";
 
 class GalleryControls extends Component {
 
