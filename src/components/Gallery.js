@@ -9,7 +9,16 @@ class Gallery extends Component {
 
     const pictures = photos.map(photo => (
       <Picture
-        url={photo.images.low_resolution.url}
+        imageUrl={photo.images.low_resolution.url}
+        instaImageUrl={photo.link}
+        username={photo.user.username}
+        userUrl={`https://www.instagram.com/${photo.user.username}`}
+        time={new Date(photo.create_time).toDateString()}
+        likes={photo.likes.count}
+        comments={photo.comments.count}
+        altText={photo.caption ? photo.caption.text : "No caption provided"}
+        tags={photo.tags}
+        filter={photo.filter}
         key={photo.link}/>
     ));
 
