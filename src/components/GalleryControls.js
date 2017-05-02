@@ -12,11 +12,11 @@ class GalleryControls extends Component {
         console.log("not updating");
         return false;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
 
     render() {
         let options = this.props.filters.map(filter => (
@@ -32,7 +32,7 @@ class GalleryControls extends Component {
             </div>
             <div className="panel-body">
               <form>
-                <select onChange={this.props._filterPhotos} name="tag">
+                <select onChange={this.props._changeFilter} name="tag">
                   {options}
                 </select>
               </form>
