@@ -4,7 +4,7 @@ class Picture extends Component {
   render() {
     return (
       <div className="col-xs-4">
-        <div className="panel">
+        <div className="panel panel-default">
           <div className="panel-header">
             <a href={this.props.userUrl}>
                 Posted by: {this.props.username}
