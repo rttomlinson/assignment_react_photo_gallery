@@ -6,8 +6,13 @@ class Picture extends Component {
       <div className="col-xs-4">
         <div className="panel panel-default">
           <div className="panel-heading">
+            <div>
               <strong>Posted by: </strong>
               <a href={this.props.userUrl}>{this.props.username}</a>
+            </div>
+            <div>
+              <strong>on:</strong> {this.props.date}
+            </div>
             <div>
             <strong>Likes:</strong> {this.props.likes}
             </div>

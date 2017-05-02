@@ -13,7 +13,7 @@ class GalleryDisplay extends Component {
         instaImageUrl={photo.link}
         username={photo.user.username}
         userUrl={`https://www.instagram.com/${photo.user.username}`}
-        time={new Date(photo.create_time).toDateString()}
+        date={(new Date(Number(photo.created_time) * 1000)).toDateString()}
         likes={photo.likes.count}
         comments={photo.comments.count}
         altText={photo.caption ? photo.caption.text : "No caption provided"}

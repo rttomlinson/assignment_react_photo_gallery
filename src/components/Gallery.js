@@ -23,24 +23,26 @@ class Gallery extends Component {
     this.state = {
       photos: photos,
       filter: "All",
-      page: 0
+      page: 0,
+      sort: -1
     };
 
     this._changeFilter = this._changeFilter.bind(this);
     this._changePage = this._changePage.bind(this);
+    this._sortByDate = this._sortByDate.bind(this);
   }
 
   _changePage(event) {
     let direction = event.target.value;
     let newPage = this.state.page + +direction;
     if (newPage < 0) newPage = 0;
-    
-    
+
+
     if (newPage * 12 > this.state.photos.length) {
         newPage = Math.floor(this.state.photos.length / 12);
         if (!this.state.photos.length % 12) newPage += 1;
     }
-    
+
     this.setState({
       page: newPage
     });
@@ -51,8 +53,12 @@ class Gallery extends Component {
     this.setState({ filter: filter, page: 0 });
   }
 
+  _sortByDate() {
+
+  }
+
   render() {
-      console.log("Page state:", this.state);
+    console.log("Page state:", this.state);
     let filteredPhotos = this.state.filter === "All" ?
       this.allPhotos :
       this.allPhotos.filter(photo => {
@@ -68,6 +74,7 @@ class Gallery extends Component {
           _changeFilter={this._changeFilter}
           _changePage={this._changePage}
           filters={this.filters}
+          _sortByDate={this._sortByDate}
         />
         <GalleryDisplay photos={paginatedPhotos} page />
       </div>
