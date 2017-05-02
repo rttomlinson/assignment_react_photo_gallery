@@ -5,22 +5,21 @@ class Picture extends Component {
     return (
       <div className="col-xs-4">
         <div className="panel panel-default">
-          <div className="panel-header">
-            <a href={this.props.userUrl}>
-                Posted by: {this.props.username}
-            </a>
-            <p>
-            Likes: {this.props.likes}
-            </p>
-            <p>
-            Comments: {this.props.comments}
-            </p>
-            <p>
-            Tags: {this.props.tags}
-            </p>
-            <p>
-            Filter: {this.props.filter}
-            </p>
+          <div className="panel-heading">
+              <strong>Posted by: </strong>
+              <a href={this.props.userUrl}>{this.props.username}</a>
+            <div>
+            <strong>Likes:</strong> {this.props.likes}
+            </div>
+            <div>
+            <strong>Comments:</strong> {this.props.comments}
+            </div>
+            <div>
+            <strong>Tags:</strong> {this.props.tags.length ? this.props.tags : 'None'}
+            </div>
+            <div>
+            <strong>Filter:</strong> {this.props.filter}
+            </div>
           </div>
           <div className="panel-body">
             <a href={this.props.instaImageUrl}>

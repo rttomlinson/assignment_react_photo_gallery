@@ -22,7 +22,16 @@ class GalleryDisplay extends Component {
     ));
 
     return (
-      <div className="container">
+      <div>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="panel panel-default">
+              <div className="panel-body">
+                Filtered Count: {pictures.length}
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="row">
           {pictures}
         </div>
